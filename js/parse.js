@@ -1,6 +1,6 @@
 export function parse(tabs) {
 	let pages = [], LUs = [];
-	origin = window.location.origin, pathArray = window.location.pathname.split('/');
+	const origin = window.location.origin, pathArray = window.location.pathname.split('/');
 	let base_url = origin;
 	pathArray.forEach((part, ix) => {
 		if(ix !== pathArray.length - 1)
