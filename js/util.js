@@ -1,3 +1,5 @@
+import {commonData} from './commonData.js';
+
 export function splitToChunks(array, parts) {
 	let result = [];
 	for (let i = parts; i > 0; i--) {
