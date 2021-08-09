@@ -1,10 +1,10 @@
-import '../util.js';
+import * as util from '../util.js';
 
 export function gscPopulate(link, data)
 {
 	const statusElem = document.getElementById('gscStatus');
 	statusElem.innerHTML = '';
-	genText(statusElem, "Mobile Friendliness Status: " + data['Status'], "Mobile Friendliness Status: " + data['Status'].replace(/_/g, " "));
+	util.genText(statusElem, "Mobile Friendliness Status: " + data['Status'], "Mobile Friendliness Status: " + data['Status'].replace(/_/g, " "));
 
 	const issuesElem = document.getElementById('gscIssues');
 	issuesElem.innerHTML = '';
@@ -12,7 +12,7 @@ export function gscPopulate(link, data)
 	{
 		data['Issues'].forEach((issue, idx) => {
 			const issueDiv = document.createElement("div");
-			genText(issueDiv, issue, issue);
+			util.genText(issueDiv, issue, issue);
 			issueDiv.classList.add('issue');
 			issuesElem.appendChild(issueDiv);
 		});

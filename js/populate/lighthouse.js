@@ -1,4 +1,4 @@
-import '../util.js';
+import * as util from '../util.js';
 
 function genLink(elem, link)
 {
@@ -35,7 +35,7 @@ function scoreDial(segment, score)
 	ctx.lineCap = 'round';
 	ctx.lineWidth = options.lineWidth;
 	const colors = ['red', 'orange', 'green'];
-	const color = colors[colorScheme(score)];
+	const color = colors[util.colorScheme(score)];
 
 	drawCircle(ctx, radius, '#efefef', 100 / 100);
 	drawCircle(ctx, radius, color, score / 100);
@@ -62,8 +62,8 @@ export function lighthousePopulate(link, data)
 		const segment = document.getElementById(device);
 		segment.innerHTML = '';
 
-		const titleCols = genColumnsContainer(segment), linkCols = genColumnsContainer(segment), dialsCols = genColumnsContainer(segment), metricCols = genColumnsContainer(segment);
-		const titleColumn = genColumn(titleCols), metricColumn = genColumn(metricCols), half = Math.floor((Object.keys(data[device]).length - 2) / 2), table = document.createElement('table');
+		const titleCols = util.genColumnsContainer(segment), linkCols = util.genColumnsContainer(segment), dialsCols = util.genColumnsContainer(segment), metricCols = util.genColumnsContainer(segment);
+		const titleColumn = util.genColumn(titleCols), metricColumn = util.genColumn(metricCols), half = Math.floor((Object.keys(data[device]).length - 2) / 2), table = document.createElement('table');
 		table.classList.add('table', 'is-bordered');
 		metricColumn.appendChild(table);
 
@@ -74,15 +74,15 @@ export function lighthousePopulate(link, data)
 			if(metric === 'Scores')
 			{
 				Object.keys(data[device]['Scores']).forEach((key, ix) => {
-					const column = genColumn(dialsCols);
+					const column = util.genColumn(dialsCols);
 					scoreDial(column, data[device]['Scores'][key]);
-					genText(column, key, commonData.scoreMap[key], true);
+					util.genText(column, key, commonData.scoreMap[key], true);
 				});
 			}
 
 			else if(metric === 'Detailed Report')
 			{
-				const column = genColumn(linkCols);
+				const column = util.genColumn(linkCols);
 				column.innerHTML = "<sup><b>*</b></sup>";
 				genLink(column, data[device]['Detailed Report']);
 			}
@@ -95,9 +95,9 @@ export function lighthousePopulate(link, data)
 				}
 
 				let cell = row.insertCell();
-				genText(cell, metric, metric, true);
+				util.genText(cell, metric, metric, true);
 				cell = row.insertCell();
-				genText(cell, data[device][metric], data[device][metric]);
+				util.genText(cell, data[device][metric], data[device][metric]);
 				ctr += 1;
 			}
 		});

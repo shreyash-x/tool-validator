@@ -1,12 +1,12 @@
 'use strict';
 
+import * as util from './util.js';
 import {commonData} from './commonData.js';
 import {parse} from './parse.js';
 import {lighthouseApi} from './api/lighthouse.js';
 import {gscApi} from './api/gsc.js';
 import {lighthousePopulate} from './populate/lighthouse.js';
 import {gscPopulate} from './populate/gsc.js';
-import './util.js';
 
 document.addEventListener('DOMContentLoaded', async function() {
 
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 	let active = {}, luColors = {};
 	const [pages, LUs] = parse(tabs);
 
-	const subArrs = splitToChunks([...pages], 5);
+	const subArrs = util.splitToChunks([...pages], 5);
 	let reports = {};
 
 	function reportGen() {
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 					storage.setItem(pages[i], JSON.stringify(reports[pages[i]]));
 				}
 
-				const mobPerfScore = reports[pages[i]]['lighthouse']['mobile']['Scores']['performance'], tab = document.querySelector(`[data-url='${pages[i]}']`), currColor = colorScheme(mobPerfScore);
+				const mobPerfScore = reports[pages[i]]['lighthouse']['mobile']['Scores']['performance'], tab = document.querySelector(`[data-url='${pages[i]}']`), currColor = util.colorScheme(mobPerfScore);
 				let parentLU = null;
 
 				LUs.forEach((lu, ix) => {

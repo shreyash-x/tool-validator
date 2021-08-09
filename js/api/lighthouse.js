@@ -1,4 +1,4 @@
-import '../util.js';
+import * as util from '../util.js';
 
 function detailedLink(url, strategy) {
 	return 'https://googlechrome.github.io/lighthouse/viewer/?psiurl=' + url + '&strategy=' + strategy;
@@ -13,7 +13,7 @@ export async function lighthouseApi(link, api) {
 			key: api.key,
 			category: ['performance', 'accessibility', 'best-practices', 'seo'/*, 'pwa'*/],
 			strategy: val 
-		}, url = setUpQuery(link, api.url, parameters);
+		}, url = util.setUpQuery(link, api.url, parameters);
 
 
 		const response = await axios.get(url);
