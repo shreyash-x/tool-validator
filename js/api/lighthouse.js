@@ -1,8 +1,10 @@
+import '../util.js';
+
 function detailedLink(url, strategy) {
 	return 'https://googlechrome.github.io/lighthouse/viewer/?psiurl=' + url + '&strategy=' + strategy;
 }
 
-async function lighthouseApi(link, api) {
+export async function lighthouseApi(link, api) {
 	const strategy = ['mobile', 'desktop'], pageData = {};
 
 	const proms = strategy.map(async (val, ind) => {

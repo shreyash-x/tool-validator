@@ -1,4 +1,4 @@
-function splitToChunks(array, parts) {
+export function splitToChunks(array, parts) {
 	let result = [];
 	for (let i = parts; i > 0; i--) {
 		result.push(array.splice(0, Math.ceil(array.length / i)));
@@ -6,7 +6,7 @@ function splitToChunks(array, parts) {
 	return result;
 };
 
-function setUpQuery(link, api, parameters) {
+export function setUpQuery(link, api, parameters) {
 	let query = `${api}?`;
 	Object.keys(parameters).forEach(function(key, i) {
 		if(Array.isArray(parameters[key]))
@@ -26,21 +26,21 @@ function setUpQuery(link, api, parameters) {
 	return query;
 };
 
-function genColumnsContainer(elem) {
+export function genColumnsContainer(elem) {
 	const cols = document.createElement("div");
 	cols.classList.add('columns', 'is-centered');
 	elem.appendChild(cols);
 	return cols;
 };
 
-function genColumn(elem) {
+export function genColumn(elem) {
 	const column = document.createElement("div");
 	column.classList.add('column', 'has-text-centered');
 	elem.appendChild(column);
 	return column;
 };
 
-function genText(elem, metric, content, toolTipFlag) {
+export function genText(elem, metric, content, toolTipFlag) {
 	const textElem = document.createElement("div");
 	textElem.classList.add('is-size-5');
 	const text = content[0].toUpperCase() + content.slice(1);
@@ -58,7 +58,7 @@ function genText(elem, metric, content, toolTipFlag) {
 };
 
 
-function genToolTip(elem, text) {
+export function genToolTip(elem, text) {
 	elem.classList.add('tool-tip');
 	const desc = document.createElement("span");
 	desc.classList.add('tooltip-text');
@@ -66,7 +66,7 @@ function genToolTip(elem, text) {
 	elem.appendChild(desc);
 };
 
-function colorScheme(score) {
+export function colorScheme(score) {
 	const colors = {
 		"red": 0,
 		"orange": 1,

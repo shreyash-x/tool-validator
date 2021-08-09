@@ -1,4 +1,6 @@
-function gscPopulate(link, data)
+import '../util.js';
+
+export function gscPopulate(link, data)
 {
 	const statusElem = document.getElementById('gscStatus');
 	statusElem.innerHTML = '';

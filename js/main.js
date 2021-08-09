@@ -1,5 +1,13 @@
 'use strict';
 
+import {commonData} from './commonData.js';
+import {parse} from './parse.js';
+import {lighthouseApi} from './api/lighthouse.js';
+import {gscApi} from './api/gsc.js';
+import {lighthousePopulate} from './populate/lighthouse.js';
+import {gscPopulate} from './populate/gsc.js';
+import './util.js';
+
 document.addEventListener('DOMContentLoaded', async function() {
 
 	function clear() {

@@ -1,4 +1,4 @@
-function parse(tabs) {
+export function parse(tabs) {
 	let pages = [], LUs = [];
 	origin = window.location.origin, pathArray = window.location.pathname.split('/');
 	let base_url = origin;

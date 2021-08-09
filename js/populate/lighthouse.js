@@ -1,3 +1,5 @@
+import '../util.js';
+
 function genLink(elem, link)
 {
 	const a = document.createElement('a');
@@ -54,7 +56,7 @@ function genTitle(elem, title) {
 	elem.appendChild(titleDiv);
 };
 
-function lighthousePopulate(link, data)
+export function lighthousePopulate(link, data)
 {
 	Object.keys(data).forEach((device, idx) => {
 		const segment = document.getElementById(device);

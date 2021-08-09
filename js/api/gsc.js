@@ -1,4 +1,6 @@
-async function gscApi(link, api) {
+import '../util.js';
+
+export async function gscApi(link, api) {
 	const parameters = { key: api.key }, url = setUpQuery(link, api.url, parameters), result = {};
 
 	const response = await axios.post(url, {

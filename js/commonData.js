@@ -1,4 +1,4 @@
-const commonData = {
+export const commonData = {
 	"api": {
 		"lighthouse": {
 			"url": "https://www.googleapis.com/pagespeedonline/v5/runPagespeed",
