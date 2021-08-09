@@ -1,4 +1,4 @@
-# SEO-Tool
+# Performance-Tool
 
 ## Overview
 
