@@ -5,9 +5,7 @@
 		{{> commons }}
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.6-b/css/style.min.css">
-		{{#each css_files}}
-		<link rel="stylesheet" href="{{this}}">
-		{{/each}}
+		<link rel="stylesheet" href="{{this.cssModule}}">
 	</head>
 
 	<body> 
@@ -117,8 +115,6 @@
 		</div>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		{{#each js_files}}
-		<script type="module" src="{{this}}"></script>
-		{{/each}}
+		<script type="module" src="{{this.jsModule}}"></script>
 	</body>
 </html>
