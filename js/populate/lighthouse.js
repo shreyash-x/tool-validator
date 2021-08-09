@@ -1,3 +1,4 @@
+import {commonData} from '../commonData.js';
 import * as util from '../util.js';
 
 function genLink(elem, link)
