@@ -10,12 +10,20 @@ export function gscPopulate(link, data)
 	issuesElem.innerHTML = '';
 	if(data['Issues'].length)
 	{
+		document.getElementById('gscIcon').display = 'in-line';
+		document.getElementById('card-toggle').color = 'red';
 		data['Issues'].forEach((issue, idx) => {
 			const issueDiv = document.createElement("div");
 			util.genText(issueDiv, issue, issue);
 			issueDiv.classList.add('issue');
 			issuesElem.appendChild(issueDiv);
 		});
+	}
+
+	else
+	{
+		document.getElementById('gscIcon').display = 'none';
+		document.getElementById('card-toggle').color = 'green';
 	}
 
 	const cardToggles = document.getElementsByClassName('card-toggle');
