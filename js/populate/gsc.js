@@ -10,8 +10,8 @@ export function gscPopulate(link, data)
 	issuesElem.innerHTML = '';
 	if(data['Issues'].length)
 	{
-		document.getElementById('gscIcon').display = 'in-line';
-		document.getElementById('card-toggle').color = 'red';
+		document.getElementById('gscIcon').display = 'inline-block';
+		document.getElementById('card-toggle').style.color = 'red';
 		data['Issues'].forEach((issue, idx) => {
 			const issueDiv = document.createElement("div");
 			util.genText(issueDiv, issue, issue);
@@ -23,7 +23,7 @@ export function gscPopulate(link, data)
 	else
 	{
 		document.getElementById('gscIcon').display = 'none';
-		document.getElementById('card-toggle').color = 'green';
+		document.getElementById('card-toggle').style.color = 'green';
 	}
 
 	const cardToggles = document.getElementsByClassName('card-toggle');
