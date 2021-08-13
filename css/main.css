@@ -105,6 +105,7 @@
 .card-header {
 	background-color: #ffffff;
 	color: green;
+	border: 1px solid #bbbbbb;
 }
 
 .card-header:hover {
@@ -115,5 +116,5 @@
 .issue {
 	background-color: #ffffff;
 	color: red;
-	border: 1px solid black;
+	border: 1px solid #bbbbbb;
 }
