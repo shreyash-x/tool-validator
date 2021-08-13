@@ -10,7 +10,7 @@ export function gscPopulate(link, data)
 	issuesElem.innerHTML = '';
 	if(data['Issues'].length)
 	{
-		document.getElementById('gscIcon').display = 'inline-block';
+		document.getElementById('gscIcon').style.display = 'inline-block';
 		document.getElementById('card-toggle').style.color = 'red';
 		data['Issues'].forEach((issue, idx) => {
 			const issueDiv = document.createElement("div");
@@ -22,7 +22,7 @@ export function gscPopulate(link, data)
 
 	else
 	{
-		document.getElementById('gscIcon').display = 'none';
+		document.getElementById('gscIcon').style.display = 'none';
 		document.getElementById('card-toggle').style.color = 'green';
 	}
 
