@@ -139,3 +139,11 @@ The code has been made in a highly modular way such that each file consists of f
         The 'genToolTip' function handles the generation of a tooltip (hoverable text, usually to give an explanation for the given text) for a given text.
 
         The 'colorScheme' function returns the appropriate color code based on a given score. This is used for the color-coding of tabs and dials based on the lighthouse scores.      
+
+## Note
+
+All the code and function calls related to the GSC mobile-friendliness API have been commented out for now as it was found to be inadequate as it runs only very basic tests which most experiments satisfy and misleads developers to believe the experiment is mobile-friendly even though it is not. Possible solutons include:
+
+1. Adding some tests (manually designed) in addition to the ones run by the API for a more rigorous and accurate result.
+2. Using an alternatve tool instead of this API.
+3. Changing the nomenclature to more accurately describe the test and to explain that this is only a very basic check and does not guarentee mobile-friendliness.

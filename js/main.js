@@ -4,17 +4,17 @@ import * as util from './util.js';
 import {commonData} from './commonData.js';
 import {parse} from './parse.js';
 import {lighthouseApi} from './api/lighthouse.js';
-import {gscApi} from './api/gsc.js';
+//import {gscApi} from './api/gsc.js';
 import {lighthousePopulate} from './populate/lighthouse.js';
-import {gscPopulate} from './populate/gsc.js';
+//import {gscPopulate} from './populate/gsc.js';
 
 document.addEventListener('DOMContentLoaded', async function() {
 
 	function clear() {
 		document.getElementById('mobile').innerHTML = '';
 		document.getElementById('desktop').innerHTML = '';
-		document.getElementById('gscStatus').innerHTML = '';
-		document.getElementById('gscIssues').innerHTML = '';
+		//document.getElementById('gscStatus').innerHTML = '';
+		//document.getElementById('gscIssues').innerHTML = '';
 	};
 
 	function colorClear(elemIds) {
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 	function populate(link, report) {
 		lighthousePopulate(link, report['lighthouse']);
-		gscPopulate(link, report['gsc']);
+		//gscPopulate(link, report['gsc']);
 	};
 
 	const storage = window.localStorage, tabs = document.getElementsByClassName('v-tabs'), colors = ['red', 'orange', 'green'];
@@ -132,17 +132,18 @@ document.addEventListener('DOMContentLoaded', async function() {
 					break;
 				}
 
-				if(report !== null && Object.keys(report.gsc).length && Object.keys(report.lighthouse).length)
+				if(report !== null && /*Object.keys(report.gsc).length &&*/ Object.keys(report.lighthouse).length)
 				{
 					reports[pages[i]] = {...report};
 				}
 
 				else
 				{
-					const lighthouseRes = await lighthouseApi(pages[i], commonData.api['lighthouse']), gscRes = await gscApi(pages[i], commonData.api['gsc']);
+					const lighthouseRes = await lighthouseApi(pages[i], commonData.api['lighthouse']);
+						//gscRes = await gscApi(pages[i], commonData.api['gsc']);
 					reports[pages[i]] = {
 						lighthouse: {...lighthouseRes},
-						gsc: {...gscRes}
+						//gsc: {...gscRes}
 					};
 
 					storage.setItem(pages[i], JSON.stringify(reports[pages[i]]));
